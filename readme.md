@@ -1,7 +1,11 @@
 # 95-702 Distributed Systems
+
 # Project 1
+
 ## Assigned: Friday, January 27, 2023
+
 ## Due: Friday, February 10, 2023, 11:59 PM
+
 ## Late by one minute is late!
 
 This project has five objectives:
@@ -17,14 +21,17 @@ This project has five objectives:
 And **fifth**, as in all projects this semester, you should reflect on the functional and non-functional characteristics (e.g. security, scalability, failure handling, interoperability) of your solutions. There will be questions on the final exam concerning these characteristics. You should be able to demonstrate a nuanced comprehension of course content and be able to explain the technical aspects in relation to potential real-world applications. For each project task, software documentation is required. The software that you write (Java files and so on) must contain comments that describe what each significant piece of code is intended to accomplish. Points will be deducted if code is not well documented. Read the documentation-related links provided on the course schedule (for class #1) to understand what is expected. Be sure to consult the rubric for details on grading.
 
 # Deliverables
+
 There are two parts to deliver, all zipped into one file for upload, with the name Project1_andrewID.zip, where "andrewID" is replaced with your actual andrew id:
+
 - one PDF containing relevant screeenshots of all the parts followed by code snippets (which is relative: how much to include is up to you for each part) that produced the result shown in the screenshot. Each section of the PDF must be clearly labeled.
 - your three projects, each zipped, with all of the three tasks zipped together.
 
 See the end for more detail, but read the project task descriptions first so that you know what the details are talking about.
 
 # Task 1
-# Use the IntelliJ Project Name:  Project1Task1
+
+## Use the IntelliJ Project Name:  Project1Task1
 
 Create an index.jsp page that asks the user to enter a string of text data, and to make a choice of two hash functions using radio buttons. The hash function choices should be MD5 and SHA-256, with MD5 being the default.  When the submit button is pressed a request is sent to a servlet. The servlet must be named ComputeHashes.java. The servlet will compute the requested cryptographic hash value (MD5 or SHA-256) from the text transmitted by the browser. You will need to employ the Java crypto API to compute the hash of the text. The original text will be echoed back to the browser along with the name of the hash, and the hash value. The hash values sent back to the browser should be displayed in two forms: as hexadecimal text and as base 64 notation. We will discuss the use of such hash values later in the course.  To compute the MD5 and SHA-256 hashes, use these standard java packages:
 
@@ -47,7 +54,44 @@ Because Task 1 is fairly simple, you do not have to use MVC for it. Do the simpl
 
 Be sure to create screen shots of your working application and submit them as described in the Submission section at the end of this document.
 
+---
+
+## Experiment with GitHub Copilot to help you with this task
+
+1. Create an index.jsp page. Within the \<body\> of the html, write the following comment and then press enter key to wait for Copilot to generate code for you. 
+
+```
+<%--asks the user to enter a string of text data, and to make a choice of two hash functions using radio buttons. The hash function choices should be MD5 and SHA-256, with MD5 being the default.  When the submit button is pressed a request is sent to a servlet.--%>
+```
+
+2. Create a servlet named ComputeHashes.java. And give the following comment to Copilot to write a function computing the requested cryptographic hash value (MD5 or SHA-256) of some texts.
+
+```
+//this computeHashes() method would be used to compute the hash value of a string using the given hash method and return the hash value in bytes array. To compute the MD5 and SHA-256 hashes, use these standard java packages: java.security.MessageDigest, java.security.NoSuchAlgorithmException;
+```
+
+3. giving the following comment to Copilot to write a function computing the hash value as hexadecimal text.
+
+```
+//This convertToHex() method use the printHexBinary method of the DatatypeConverter class to convert the hash value in bytes array to a string in hexadecimal format.
+```
+
+4. giving the following comment to Copilot to write a function computing the hash value as base 64 notation.
+
+```
+//This convertToBase64() method use the printBase64Binary method of the DatatypeConverter class to convert the hash value in bytes array to a string in Base64 format.
+```
+
+5. giving the following comment to Copilot to write the doPut() methods to display the results on the browser.
+
+```
+//In this doPut() method, first get the hash method and the text from the request object, compute the hash value of the text using the hash method, and return the hash string, hash and the hash value to the browser in hexadecimal, and Base64 format, using javax.xml.bind.DatatypeConverter.printBase64Binary, javax.xml.bind.DatatypeConverter.printHexBinary.
+```
+
+*Remember: The code generated by Copilot is not perfect. Sometimes, you have to modify these code to satisfy your own demand, such as changing the return type of the method or the name of parameter in the request. The comments you provide to Copilot greatly influence the outcomes it generates for you. You can also change the aforementioned comments or even alter the sequence of these steps to observe the resulting effects.*
+
 # Task 2
+
 ## Use IntelliJ Project Name: Project1Task2
 
 Task 2 is meant to give you practice with several things: servlet programming, web scraping, API's, JSON, and MVC. It gives some information about the upcoming Women's World Cup in Australia and New Zealand.
@@ -55,6 +99,7 @@ Task 2 is meant to give you practice with several things: servlet programming, w
 Your program will present a welcome screen containing a title, your name, and a drop-down menu of of countries, as in Figure 1 and Figure 2. Note that there are still a few participants to be decided through playoff games; we will ignore those countries. The Submit button is used to record the user's choice. Note that you will need to learn about HTML drop-down menus on your own.
 
 ## Input
+
 ![Figure 1](figure1.png)
 ***Figure 1: Welcome Screen***
 
@@ -66,6 +111,7 @@ Your program will present a welcome screen containing a title, your name, and a 
 Use the file "countries" to create the drop-down list. It is okay to hard-code the country names in the jsp file.
 
 ## Output
+
 Figure 3 shows the output screen. Several facts have been gathered from the web sites listed.
 
 ![Figure 3](figure3.png)
@@ -111,6 +157,7 @@ You ***MUST*** use the gson library for this - see below for details about inclu
 ## Notes and hints
 
 ## Screen Scraping
+
 Screen scraping is programmatically processing the HTML that typically is displayed by a browser and can be a useful tool when your data source does not have an API that provides structured data. Instead, you can search or parse the HTML to find and extract the data that you need. For more information, see
 
 > https://en.wikipedia.org/wiki/Web_scraping
@@ -130,11 +177,11 @@ Refer to http://www.w3schools.com for good help on the basic HTML you need for t
 JSON records are text records containing tag-value pairs, where the tag is the field name - think of it as a dictionary or map with nesting. It is much shorter than XML. In order to find what you need, use the JSON library GSON. To use GSON, download the gson v.2.10.1 jar file to a place you'll remember. To add it to your project, go to File->Project Structure->Modules, choose the Dependencies tab, click the + icon at the bottom choose Jars or Directories, navigate to where you put the jar file, click that, then Apply and OK. It should show up in your pom.xml file as the last entry in <dependiences> as:
 
   ```
-  <dependency>
-      <groupId>com.google.code.gson</groupId>
-      <artifactId>gson</artifactId>
-      <version>2.10.1</version>
-  </dependency>
+<dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.10.1</version>
+</dependency>
   ```
 
 If this does not appear, add the above lines manually to pom.xml.
@@ -144,6 +191,7 @@ Finally, reload the Maven dependencies to have this new dependency take effect -
 Please use gson and not some other JSON library.
 
 ## SSLHandshakeException
+
 Most modern sites require you to make https, not http requests. When you do so from your Java program, you will hit an SSLHandshakeException. We will be covering SSL and related topics in a few weeks. In the meantime, you will have to deal with this exception.
 
 If you use jsoup, you should use validateTLSCertificates(false). (Refer to the jsoup API to understand this when you need it.)
@@ -258,9 +306,9 @@ The web app should work with a mobile browser.  For this project you can use a s
 
 - Browse to your web application in Chrome
 - Access the Chrome DevTools
-(https://developers.google.com/web/tools/chrome-devtools/?hl=en#access-devtools).  
+  (https://developers.google.com/web/tools/chrome-devtools/?hl=en#access-devtools).  
 - Toggle device mode to mobile and choose an Android or iPhone device
-(https://developers.google.com/web/tools/chrome-devtools/iterate/device-mode/?hl=en)
+  (https://developers.google.com/web/tools/chrome-devtools/iterate/device-mode/?hl=en)
 - Reload the page.
 - In addition to testing, you use this to produce a screen shot showing your web app working for mobile.  If your page looks like the one on the right, even after reloading, then the doctype is not being set correctly.   
 
@@ -270,36 +318,44 @@ Figure 9 is what the web app should look like for mobile if the doctype is set c
 ***Figure 9***
 
 ## Overall web app requirements:
+
 - You must use MVC to separate concerns.
 - Implement only one HttpServlet
 
 ## Hints:
+
 - You can have multiple URL patterns in a WebServlet annotation.  For example, you can indicate that a servlet can be called by two paths such as: urlPatterns = {"/submit", "/getResults"}
 
  - In order to determine within the servlet which path was actually requested, you can use request.getServletPath();
 
 Produce screen shots of your application:
+
 - With the answer options on desktop
 - With the getResults on desktop
 - With the answer options on mobile
 - With the getResults on mobile
 
 ## Questions:
+
 If you have questions, you can post them to the class Piazza and tag them as “Project1”.
 
 # Summary & Submission:
+
 Be sure to review the Rubric linked on the course schedule for the first day.
 
 Submit ***one*** PDF naned Project1_andrewID.zip, where "andrewID" is replaced with your actual andrew id, containing the following; each part should begin with the headers shown (that is, "Task 1") and subheaders for the subparts. "Code snippet" means a copy of the relevant code, **not** all of the .java or .jsp file.
 
 ### Task 1:
+
 1. **Screen shots** of input, MD5 and SHA-256 output, both in hex and base 64
 2. **Code snippets** of computation of each hash
 
 ### Task 2:
+
 1. **Screen shots** of input page, drop-down menu, output page for England and South Africa.
 
 2. **Code snippets** for:
+
 - scraping of the nickname
 - scraping of the capital
 - scraping of the top scorer with number of goals
@@ -307,11 +363,14 @@ Submit ***one*** PDF naned Project1_andrewID.zip, where "andrewID" is replaced w
 - api call for the flag emoji JSON record, including the conversion to a Java array of objects.
 
 ### Task 3:
+
 1. **Screen shots** of the input page, output page (one vote), results page
 2. **Code snippets** from the Java code that produces the output page and the results page.
 
 ### Code: ###
+
 Create three zip files, each one of which is the zip of your WHOLE project for task 1, 2 and 3. For each project, zip the whole project, you need to use "File->Export Project->To Zip" in IDEA.
 
 ### Finally: ###
+
 ***Zip the one PDF and the three project zip files into one big zip file for submission.***
