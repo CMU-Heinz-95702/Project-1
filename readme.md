@@ -1,7 +1,7 @@
 # 95-702 Distributed Systems
 # Project 1
-## Assigned: Monday, January 27
-## Due: Monday, February 10, 2:00 PM
+## Assigned: Monday, September 8
+## Due: Monday, September 22, 2:00 PM
 ## Late by one minute is late!
 
 This project has five objectives:
@@ -182,6 +182,12 @@ Here's Colombia's information:
 ![Figure9](figure9.png)
 ***Figure 9: Colombia***
 
+The new drop-down menu must be dymaically populated from the names of the neighboring countries - in other words, do not hard-code the menu into the jsp file. You'll be sending the country names to the jsp from the servelet, so use that to create each new drop-down. That's the idea of "crawling" the Americas.
+
+![Figure10](figure10.png)
+
+***Figure 10: Crawl starting at Colombia***
+
 Scrape the flag URL from the CIA World Factbook. Append the country name to this URL:
 
 ```
@@ -229,13 +235,16 @@ Some countries may have more than one currency; just take the first one. The cou
 Other requirements:
 6. Be coded primarily in Java and JSP. If you use something else, give a brief but convincing argument why this was **necessary** and not just a convenience (like you copied the code from github, or you got ChatGPT to generate it, are not good reasons). However, see #7 below!
 
-6. Use one page for input and one for your output - one for the original input and one for the output.
+7. Use one page for input and one for your output - one for the original input and one for the output.
 
-7. Use the Model-View-Contorller (MVC) pattern and good separation of concerns.
+8. Use the Model-View-Contorller (MVC) pattern and good separation of concerns. As part of using MVC, use the following setup to ensure correct grading of your project.
 
 The model class ***must*** be named P1T3Model and it ***must*** have the following getter methods - this is for testing your submission, so if you use different names, you program will fail the unit tests:
 
 ```
+// Returns the official country name
+public String getOfficialName();
+
 // Returns the names of the country's neighbors
 public ArrayList<String> getNeighbors();
 
@@ -244,7 +253,6 @@ public String getTheFlag();
 
 // Returns the symbol + curreny name of the country
 public String getCurrency();
-
 ```
 
 8. Handle error conditions in a "reasonable" way. Check for non-200 status codes, for example.
