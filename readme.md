@@ -18,13 +18,6 @@ This project has five objectives:
 
 and **sixth**, **optionally** you may use ChatGPT and Copilot to create some of your code in Task 3. Task 1 and Task 2 **must** be done on your own. There will be exam questions that ask specifically about the code in all three tasks. While you are allowed to use AI tools to help with Task 3, it is totally optional. There will be questions about this code, too. Also pay attention to the more general issues like, what is MVC and what are the benefits of using it? What does it mean to scrape a web page?.
 
-# Deliverables
-There are two parts to deliver, all zipped into one file for upload, with the name Project1_andrewID.zip, where "andrewID" is replaced with your actual andrew id:
-- one PDF containing relevant screeenshots of all the parts followed by code snippets (which is relative: how much to include is up to you for each part) that produced the result shown in the screenshot. Each section of the PDF must be clearly labeled.
-- your three projects, each zipped, with all of the three tasks zipped together.
-
-See the end for more detail, but read the project task descriptions first so that you know what the details are talking about.
-
 # Task 1
 # Use the IntelliJ Project Name:  Project1Task1
 
@@ -239,25 +232,20 @@ Other requirements:
 
 8. Use the Model-View-Contorller (MVC) pattern and good separation of concerns. As part of using MVC, use the following setup to ensure correct grading of your project.
 
-The model class ***must*** be named P1T3Model and it ***must*** have the following getter methods - this is for testing your submission, so if you use different names, you program will fail the unit tests:
+9. To enable testing, your servlet must write a small output file containing the following information in JSON format. Name the file "country.json" and store it in the project's home directory. The example shown is after Colombia is searched.
 
 ```
-// Returns the official country name
-public String getOfficialName();
-
-// Returns the names of the country's neighbors
-public ArrayList<String> getNeighbors();
-
-// Returns the URL of the country's flag
-public String getTheFlag();
-
-// Returns the symbol + curreny name of the country
-public String getCurrency();
+{
+"countryName":"Republic of Colombia"
+"neighbors":"Brazil Ecuador Panama Peru Venezuela"
+"flag":"<url of Colombia's flag goes here>"
+"currency":"$ Colombian peso"
+}
 ```
 
-8. Handle error conditions in a "reasonable" way. Check for non-200 status codes, for example.
+10. Handle error conditions in a "reasonable" way. Check for non-200 status codes, for example.
 
-9. Be well documented - the code, the usage of the app, and the structure/design of the app, any AI-related things as described above. Refer to the documentation guidelines on Canvas.
+11. Be well documented - the code, the usage of the app, and the structure/design of the app, any AI-related things as described above. Refer to the documentation guidelines on Canvas.
 
 Again, you *MUST* use the MVC pattern for Task 3.
 
@@ -379,7 +367,7 @@ If you have questions, you can post them to the class Piazza and tag them as “
 # Summary & Submission:
 Be sure to review the Rubric linked on the course schedule for the first day. Please remember to document your code! Points will be deducted if you don't have enough.
 
-Submit ***one*** PDF naned Project1_andrewID.zip, where "andrewID" is replaced with your actual andrew id, containing the following; each part should begin with the headers shown (that is, "Task 1") and subheaders for the subparts. "Code snippet" means a copy of the relevant code, **not** all of the .java or .jsp file.
+Submit ***one*** zip file naned Project1_andrewID.zip, where "andrewID" is replaced with your actual andrew id, containing the following; each part should begin with the headers shown (that is, "Task 1") and subheaders for the subparts. "Code snippet" means a copy of the relevant code, **not** all of the .java or .jsp file.
 
 ### Task 1:
 1. * From the root of your project directory, compress your code and dependencies:
@@ -401,9 +389,9 @@ Submit ***one*** PDF naned Project1_andrewID.zip, where "andrewID" is replaced w
   ```
 * Your submission must contain **all required source files** , you must ensure that results of the task are well stored in country.json file as autograder checks for this file.
 
+
 ### Code: ###
 Once you are done compressing the file , upload it on Gradescope under their respective Gradescope Tasks to get your code autograded.
 
 ### LLM Self-Reporting ###
 If you used ChatGPT, Copilot, or some other LLM in Task 3 (remember: this is **only** allowed in Task 3), say so (it should be part of your documentation, too, but we just want some note of it here).
-
