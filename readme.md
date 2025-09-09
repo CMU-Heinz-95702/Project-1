@@ -382,23 +382,28 @@ Be sure to review the Rubric linked on the course schedule for the first day. Pl
 Submit ***one*** PDF naned Project1_andrewID.zip, where "andrewID" is replaced with your actual andrew id, containing the following; each part should begin with the headers shown (that is, "Task 1") and subheaders for the subparts. "Code snippet" means a copy of the relevant code, **not** all of the .java or .jsp file.
 
 ### Task 1:
-1. **Screen shots** of input, MD5 and SHA-256 output, both in hex and base 64
-2. **Code snippets** of computation of each hash
+1. * From the root of your project directory, compress your code and dependencies:
+  ```bash
+  zip -r ../andrew-id_Project1Task1.zip ./*
+  ```
 
 
 ### Task 2:
-1. **Screen shots** of input page(s) and output page(s).
-2. **Code snippets** for producing clicker output.
+1. * From the root of your project directory, compress your code and dependencies:
+  ```bash
+  zip -r ../andrew-id_Project1Task2.zip ./*
+  ```
 
 ### Task 3:
-1. **Screen shots** of two uses of the input page (two different national parks) and the corresponding output pages.
-2. **Code snippets** from the Java code that screen scrapes, queries the API, and produces output.
+1. * From the root of your project directory, compress your code and dependencies:
+  ```bash
+  zip -r ../andrew-id_Project1Task3.zip ./*
+  ```
+* Your submission must contain **all required source files** , you must ensure that results of the task are well stored in country.json file as autograder checks for this file.
 
 ### Code: ###
-Create three zip files, each one of which is the zip of your WHOLE project for task 1, 2 and 3. For each project, zip the whole project, you need to use "File->Export Project->To Zip" in IDEA.
+Once you are done compressing the file , upload it on Gradescope under their respective Gradescope Tasks to get your code autograded.
 
 ### LLM Self-Reporting ###
 If you used ChatGPT, Copilot, or some other LLM in Task 3 (remember: this is **only** allowed in Task 3), say so (it should be part of your documentation, too, but we just want some note of it here).
 
-### Finally: ###
-***Zip the one PDF and the three project zip files into one big zip file for submission.***
