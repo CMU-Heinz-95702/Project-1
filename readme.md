@@ -136,7 +136,7 @@ For this assignment, you may **optionally** use ChatGPT and/or Copilot to help y
 Create a web app using information about countries in North, Central, and South America. The information to display is given below.
 
 ## Input ###
-Your program will present a welcome screen containing a title, a "created by" citation (that's you), a drop-down menu of three countryes, and a Submit button, as shown in Figure 6 and Figure 7. Only the countries shown in Figure 7 will be used at startup; these are at the ends and middle of the Americas. The Submit button is used to record the user's choice. Note that you will need to learn about HTML drop-down menus on your own. Next, it will show the user some choices for data from the list below.
+Your program will present a welcome screen containing a title, a "created by" citation (that's you), a drop-down menu of three countries, and a Submit button, as shown in Figure 6 and Figure 7. Only the countries shown in Figure 7 will be used at startup; these are at the ends and middle of the Americas. The Submit button is used to record the user's choice. Note that you will need to learn about HTML drop-down menus on your own. Next, it will show the user some choices for data from the list below.
 
 ![Figure 6](figure6.png)
 
@@ -237,7 +237,7 @@ Other requirements:
 ```
 {
 "countryName":"Republic of Colombia"
-"neighbors":"Brazil Ecuador Panama Peru Venezuela"
+"neighbors":"[Brazil Ecuador Panama Peru Venezuela]"
 "flag":"<url of Colombia's flag goes here>"
 "currency":"$ Colombian peso"
 }
