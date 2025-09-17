@@ -54,8 +54,6 @@ Be sure to provide a simple and user friendly interface.  If you are unfamiliar 
 
 Because Task 1 is fairly simple, you do not have to use MVC for it. Do the simplest thing possible (however, feel free to use MVC if you'd like).
 
-Be sure to create screen shots of your working application and submit them as described in the Submission section at the end of this document.
-
 # Task 2
 # Use the IntelliJ Project Name: Project1Task2
 
@@ -112,12 +110,6 @@ Figure 5 is what the web app should look like for mobile if the doctype is set c
 - You can have multiple URL patterns in a WebServlet annotation.  For example, you can indicate that a servlet can be called by two paths such as: urlPatterns = {"/submit", "/getResults"}
 
  - In order to determine within the servlet which path was actually requested, you can use request.getServletPath();
-
-Produce screen shots of your application:
-- With the answer options on desktop
-- With the getResults on desktop
-- With the answer options on mobile
-- With the getResults on mobile
 
 # Task 3
 # Use IntelliJ Project Name: Project1Task3
@@ -367,7 +359,7 @@ If you have questions, you can post them to the class Piazza and tag them as “
 # Summary & Submission:
 Be sure to review the Rubric linked on the course schedule for the first day. Please remember to document your code! Points will be deducted if you don't have enough.
 
-Submit ***one*** zip file naned Project1_andrewID.zip, where "andrewID" is replaced with your actual andrew id, containing the following; each part should begin with the headers shown (that is, "Task 1") and subheaders for the subparts. "Code snippet" means a copy of the relevant code, **not** all of the .java or .jsp file.
+Submit ***one*** zip file naned Project1_andrewID.zip, where "andrewID" is replaced with your actual andrew id. 
 
 ### Task 1:
 1. * From the root of your project directory, compress your code and dependencies:
