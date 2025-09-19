@@ -248,6 +248,26 @@ Again, you *MUST* use the MVC pattern for Task 3.
 
 ## Notes and hints
 
+## Creating country.json 
+Use the code below as reference to create country.json in the target folder of your code , where the autograder will be looking for the file
+
+```
+try {
+        java.nio.file.Path backupPath = java.nio.file.Paths.get(System.getProperty("user.dir"), "target", "country.json");
+        java.nio.file.Files.createDirectories(backupPath.getParent());
+        
+        try (java.io.Writer writer = java.nio.file.Files.newBufferedWriter(backupPath, java.nio.charset.StandardCharsets.UTF_8)) {
+            new com.google.gson.Gson().toJson(info, writer);
+        }
+        
+        System.out.println("Backup country.json written to: " + backupPath.toAbsolutePath());
+        
+    } catch (Exception backupException) {
+        // Backup write failed, but continue - main file was written successfully
+        System.err.println("Backup write failed (not critical): " + backupException.getMessage());
+    }
+```
+
 ## Screen Scraping
 Screen scraping is programmatically processing the HTML that typically is displayed by a browser and can be a useful tool when your data source does not have an API that provides structured data. Instead, you can search or parse the HTML to find and extract the data that you need. For more information, see
 
