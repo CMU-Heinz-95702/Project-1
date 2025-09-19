@@ -252,20 +252,27 @@ Again, you *MUST* use the MVC pattern for Task 3.
 Use the code below as reference to create country.json in the target folder of your code , where the autograder will be looking for the file
 
 ```
-try {
-        java.nio.file.Path backupPath = java.nio.file.Paths.get(System.getProperty("user.dir"), "target", "country.json");
-        java.nio.file.Files.createDirectories(backupPath.getParent());
-        
-        try (java.io.Writer writer = java.nio.file.Files.newBufferedWriter(backupPath, java.nio.charset.StandardCharsets.UTF_8)) {
-            new com.google.gson.Gson().toJson(info, writer);
-        }
-        
-        System.out.println("Backup country.json written to: " + backupPath.toAbsolutePath());
-        
-    } catch (Exception backupException) {
-        // Backup write failed, but continue - main file was written successfully
-        System.err.println("Backup write failed (not critical): " + backupException.getMessage());
+java.nio.file.Path exploded = java.nio.file.Paths.get(getServletContext().getRealPath("/")).normalize();
+    
+    // Go up one level to get the target directory
+    java.nio.file.Path projectTargetDir = exploded.getParent();
+    
+    if (projectTargetDir == null) {
+        throw new IOException("Cannot resolve project target directory");
     }
+    
+    // Create the path for country.json in target directory
+    java.nio.file.Path countryJsonPath = projectTargetDir.resolve("country.json");
+    
+    // Ensure the target directory exists
+    java.nio.file.Files.createDirectories(countryJsonPath.getParent());
+    
+    // Write the CountryInfo object as JSON to the file
+    try (java.io.Writer writer = java.nio.file.Files.newBufferedWriter(countryJsonPath, java.nio.charset.StandardCharsets.UTF_8)) {
+        new com.google.gson.Gson().toJson(info, writer);
+    }
+    
+    System.out.println("country.json written to: " + countryJsonPath.toAbsolutePath());
 ```
 
 ## Screen Scraping
