@@ -54,6 +54,11 @@ Be sure to provide a simple and user friendly interface.  If you are unfamiliar 
 
 Because Task 1 is fairly simple, you do not have to use MVC for it. Do the simplest thing possible (however, feel free to use MVC if you'd like).
 
+For grading purposes, please use the URL 
+```
+localhost:8080/compute-hash-servlet/?text=<string goes here>.
+```
+
 # Task 2
 # Use the IntelliJ Project Name: Project1Task2
 
