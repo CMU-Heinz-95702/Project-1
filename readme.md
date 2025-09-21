@@ -1,7 +1,7 @@
 # 95-702 Distributed Systems
 # Project 1
 ## Assigned: Monday, September 8
-## Due: Monday, September 22, 2:00 PM
+## Due: ~~Monday, September 22, 2:00 PM~~ Now due: Tuesday, September 23, 11:59 pm
 ## Late by one minute is late!
 
 This project has five objectives:
@@ -247,33 +247,6 @@ Other requirements:
 Again, you *MUST* use the MVC pattern for Task 3.
 
 ## Notes and hints
-
-## Creating country.json 
-Use the code below as reference to create country.json in the target folder of your code , where the autograder will be looking for the file
-
-```
-java.nio.file.Path exploded = java.nio.file.Paths.get(getServletContext().getRealPath("/")).normalize();
-    
-    // Go up one level to get the target directory
-    java.nio.file.Path projectTargetDir = exploded.getParent();
-    
-    if (projectTargetDir == null) {
-        throw new IOException("Cannot resolve project target directory");
-    }
-    
-    // Create the path for country.json in target directory
-    java.nio.file.Path countryJsonPath = projectTargetDir.resolve("country.json");
-    
-    // Ensure the target directory exists
-    java.nio.file.Files.createDirectories(countryJsonPath.getParent());
-    
-    // Write the CountryInfo object as JSON to the file
-    try (java.io.Writer writer = java.nio.file.Files.newBufferedWriter(countryJsonPath, java.nio.charset.StandardCharsets.UTF_8)) {
-        new com.google.gson.Gson().toJson(info, writer);
-    }
-    
-    System.out.println("country.json written to: " + countryJsonPath.toAbsolutePath());
-```
 
 ## Screen Scraping
 Screen scraping is programmatically processing the HTML that typically is displayed by a browser and can be a useful tool when your data source does not have an API that provides structured data. Instead, you can search or parse the HTML to find and extract the data that you need. For more information, see
