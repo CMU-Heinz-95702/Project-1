@@ -1,7 +1,7 @@
 # 95-702 Distributed Systems
 # Project 1
-## Assigned: Monday, September 8
-## Due: ~~Monday, September 22, 2:00 PM~~ Now due: Tuesday, September 23, 11:59 pm
+## Assigned: Monday, January 26, 2026
+## Due: Monday, February 9, 2026, 11:59 PM
 ## Late by one minute is late!
 
 This project has five objectives:
@@ -14,12 +14,19 @@ This project has five objectives:
 
 **Fourth**, you are introduced to the MVC pattern if you have not used it before.
 
-**Fifth**, as in all projects this semester, you should reflect on the functional and non-functional characteristics (e.g. security, scalability, failure handling, interoperability) of your solutions. There will be questions on the final exam concerning these characteristics. You should be able to demonstrate a nuanced comprehension of course content and be able to explain the technical aspects in relation to potential real-world applications. For each project task, software documentation is required. The software that you write (Java files and so on) must contain comments that describe what each significant piece of code is intended to accomplish. Points will be deducted if code is not well documented. Read the documentation-related links provided on the course schedule (for class #1) to understand what is expected. Be sure to consult the rubric for details on grading.
+And **fifth**, as in all projects this semester, you should reflect on the functional and non-functional characteristics (e.g. security, scalability, failure handling, interoperability) of your solutions. There will be questions on the final exam concerning these characteristics. You should be able to demonstrate a nuanced comprehension of course content and be able to explain the technical aspects in relation to potential real-world applications. For each project task, software documentation is required. The software that you write (Java files and so on) must contain comments that describe what each significant piece of code is intended to accomplish. Points will be deducted if code is not well documented. Read the documentation-related links provided on the course schedule (for class #1) to understand what is expected. Be sure to consult the rubric for details on grading.
 
-and **sixth**, **optionally** you may use ChatGPT and Copilot to create some of your code in Task 3. Task 1 and Task 2 **must** be done on your own. There will be exam questions that ask specifically about the code in all three tasks. While you are allowed to use AI tools to help with Task 3, it is totally optional. There will be questions about this code, too. Also pay attention to the more general issues like, what is MVC and what are the benefits of using it? What does it mean to scrape a web page?.
+# Deliverables
+There are two parts to deliver, all zipped into one file for upload, with the name Project1_andrewID.zip, where "andrewID" is replaced with your actual andrew id:
+- one PDF containing relevant screeenshots of all the parts followed by code snippets (which is relative: how much to include is up to you for each part) that produced the result shown in the screenshot. Each section of the PDF must be clearly labeled.
+- your three projects, each zipped, with all of the three tasks zipped together.
+
+See the end for more detail, but read the project task descriptions first so that you know what the details are talking about.
 
 # Task 1
 # Use the IntelliJ Project Name:  Project1Task1
+
+**Make sure your project is named Project1Task1, uses the Application Context "Project1Task1-1.0-SNAPSHOT", and uses these configuraations before doGet: "@WebServlet(name = "Project1Task1Servlet", urlPatterns = "/compute-hash-servlet")".**
 
 Create an index.jsp page that asks the user to enter a string of text data, and to make a choice of two hash functions using radio buttons. The hash function choices should be MD5 and SHA-256, with MD5 being the default.  When the submit button is pressed a request is sent to a servlet. The servlet must be named ComputeHashes.java. The servlet will compute the requested cryptographic hash value (MD5 or SHA-256) from the text transmitted by the browser. You will need to employ the Java crypto API to compute the hash of the text. The original text will be echoed back to the browser along with the name of the hash, and the hash value. The hash values sent back to the browser should be displayed in two forms: as hexadecimal text and as base 64 notation. We will discuss the use of such hash values later in the course.  To compute the MD5 and SHA-256 hashes, use these standard java packages:
 
@@ -28,39 +35,24 @@ Create an index.jsp page that asks the user to enter a string of text data, and 
 
 To print the Base64 encoding, use the following method:
 
-    jakarta.xml.bind.DatatypeConverter.printBase64Binary()
+    javax.xml.bind.DatatypeConverter.printBase64Binary
 
 To print the hexadecimal encoding, use the following method:
 
-    jakarta.xml.bind.DatatypeConverter.printHexBinary()
-
-To include the DatatypeConverter class into your project, use:
-
-    import jakarta.xml.bind.DatatypeConverter;
-
-and add these lines to your pom.xml file, then refresh Maven:
-
-```
-<dependency>
-    <groupId>jakarta.xml.bind</groupId>
-    <artifactId>jakarta.xml.bind-api</artifactId>
-    <version>4.0.1</version>
-</dependency>
-```
+    javax.xml.bind.DatatypeConverter.printHexBinary
 
 Be sure to provide a simple and user friendly interface.  If you are unfamiliar with HTML forms, a simple explanation can be found at:
 
-    http://www.w3schools.com/html/html_forms.asp
+    http://www.w3schools.com/html/html_forms.asp .
 
 Because Task 1 is fairly simple, you do not have to use MVC for it. Do the simplest thing possible (however, feel free to use MVC if you'd like).
 
-For grading purposes, please use the URL 
-```
-localhost:8080/compute-hash-servlet/?text=<string goes here>.
-```
+Be sure to create screen shots of your working application and submit them as described in the Submission section at the end of this document.
 
 # Task 2
 # Use the IntelliJ Project Name: Project1Task2
+
+**Make sure your project is named Project1Task2, uses the Application Context "Project1Task2-1.0-SNAPSHOT", and uses these configuraations before doGet: "@WebServlet(name = "Project1Task2Servlet", urlPatterns = "/getResults, /submit")".**
 
 Create a web application that implements a simple desktop and mobile “clicker” for class.  Your app should allow users to submit answers to questions posed in class, and should provide a separate URL end point for getting the results of the submitted responses.  The welcome page for your app should be similar to Figure 1.  You can make it more stylish if you like, but it is not required.
 
@@ -88,6 +80,7 @@ You can test the application by repeatedly submitting answers and allowing your 
 5. If there are no results available, then report this as shown in Figure 4.
 
 ![Figure 4](figure4.png)
+
 ***Figure 4***
 
 Note that requirement 4 does not adhere to the HTTP standard for a GET request. You should understand why this is bad behavior according to the standard, and how you could fix it (It might be on the exam).
@@ -105,6 +98,7 @@ The web app should work with a mobile browser.  For this project you can use a s
 Figure 5 is what the web app should look like for mobile if the doctype is set correctly.
 
 ![Figure 5](figure5.png)
+
 ***Figure 5***
 
 ## Overall web app requirements:
@@ -112,141 +106,100 @@ Figure 5 is what the web app should look like for mobile if the doctype is set c
 - Implement only one HttpServlet
 
 ## Hints:
-- You can have multiple URL patterns in a WebServlet annotation.  For example, you can indicate that a servlet can be called by two paths such as: urlPatterns = {"/submit", "/getResults"}
+- You can have multiple URL patterns in a WebServlet annotation.  Indicate that the servlet can be called by two paths as: urlPatterns = {"/submit", "/getResults"}
 
- - In order to determine within the servlet which path was actually requested, you can use request.getServletPath();
+ - The "/submit" pattern should be associated with doPost( ). To set up the POST data packet, use something like this:
+ ```
+             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("POST");
+            conn.setDoOutput(true);
+            conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+
+            String payload = "answer=" + URLEncoder.encode(option, "UTF-8");
+```
+where option is A, B, C, or D.
+
+Produce screen shots of your application:
+- With the answer options on desktop
+- With the getResults on desktop
+- With the answer options on mobile
+- With the getResults on mobile
 
 # Task 3
-# Use IntelliJ Project Name: Project1Task3
+## Use IntelliJ Project Name: Project1Task3
 
-Task 3 is meant to give you practice with several things: servlet programming, web scraping, API's, JSON, and MVC.
+**Make sure your project is named Project1Task3, uses the Application Context "Project1Task3-1.0-SNAPSHOT", and uses these configuraations before doGet: "@WebServlet(name = "Project1Task3Servlet", urlPatterns = "/getProject1Task3Servlet")".**
 
-For this assignment, you may **optionally** use ChatGPT and/or Copilot to help you generate a solution; it's not a requirement and you should be able to do the design and coding without it.  Keep in mind that:
+Task 3 is meant to give you practice with several things: servlet programming, web scraping, API's, JSON, and MVC. It gives some information about the upcoming FIFA World Cup in the United States, Canada, and Mexico.
 
-    - generated code is not always correct
-    - the more precise your ChatGPT prompt, the better the solution is likely to be
-    - how you generate the solution should be repeatable and explainable
-    - you **must** be able to explain fully the solution, generated by AI or by you, if asked
-    - you **must** document your use of AI tools. Show the prompt(s) you used to generate sections of code and what tools you used. Also note where you edited (if you did) any of the generated code and why you did so.
+Your program will present a welcome screen containing a title, your name, and a drop-down menu of of countries, as in Figure 6 and Figure 7. To simplify some of the lookup, we're ignoring Cape Verde (sorry, 	Tubaroes Azuis) and Cote d'Ivoire(je suis desole, Les Éléphants). But there may be other lookup problems: "USA" instead of "United States" on different sites, for example. Also, there are still six participants to be decided through playoff games; we will ignore those countries, too. The Submit button is used to record the user's choice. Note that you will need to learn about HTML drop-down menus on your own.
 
-##  Crawl the Americas App ##
-Create a web app using information about countries in North, Central, and South America. The information to display is given below.
-
-## Input ###
-Your program will present a welcome screen containing a title, a "created by" citation (that's you), a drop-down menu of three countries, and a Submit button, as shown in Figure 6 and Figure 7. Only the countries shown in Figure 7 will be used at startup; these are at the ends and middle of the Americas. The Submit button is used to record the user's choice. Note that you will need to learn about HTML drop-down menus on your own. Next, it will show the user some choices for data from the list below.
-
+## Input
 ![Figure 6](figure6.png)
 
-***Figure 6: Welcome screen***
+***Figure 6: Welcome Screen***
 
-The drop-down menu shows the required three countries.
+---
 
 ![Figure 7](figure7.png)
 
-***Figure 7: Drop-down menu***
+***Figure 7: Drop-down Menu (partial)***
 
-## Output ##
+Use the file "countries" to create the drop-down list; it has the 40 countries required. It is okay to hard-code the country names in the jsp file.
 
-Your app **must** display the following and meet these criteria:
-
-0. Display the title again along with the credits (the two web sites mentioned below).
-
-1. Show the official name of the country, as labeled below.
-
-2. Display the currency of the country with its symbol. 
-
-3. Display the country's flag.
-
-4. Display a list of the country's neighbors.
-
-5. Present a drop down menu containing those neighbors, along with a Continue button.
-
-Figure 8 shows the result of initially choosing Canada; the drop down menu contains only the USA (Canada's only neighbor). Figure 9 shows the result of initially choosing Colombia instead. Colombia's neighbors are Brazil, Ecuador, Panama, Peru, and Venezuela. Those countries are also in the drop down menu (only Brazil is showing in the figure).
+## Output
+Figure 8 shows the output screen. Several facts have been gathered from the web sites listed.
 
 ![Figure 8](figure8.png)
 
-***Figure 8: Canada***
+***Figure 8: Output for Argentina***
 
-Here's Colombia's information:
+Argentina's nickname is shown first, followed by its capital city. Messi was Argentina's top scorer in the 2022 tournament. If a country has no entyr in this data, show "N/A" (for Not Available). The flag is the official country flag, but the flag emoji is an idealized version. The credit for each part of the output is shown - ***but note*** that you will have to construct the URL appropriate to each site (e.g. perhaps by adding the country name).
 
-![Figure9](figure9.png)
-***Figure 9: Colombia***
+The Continue button should send the user back to the Welcome screen.
 
-The new drop-down menu must be dymaically populated from the names of the neighboring countries - in other words, do not hard-code the menu into the jsp file. You'll be sending the country names to the jsp from the servelet, so use that to create each new drop-down. That's the idea of "crawling" the Americas.
+Figure 9 shows the results for the United States.
 
-![Figure10](figure10.png)
+![Figure 9](figure9.png)
 
-***Figure 10: Crawl starting at Colombia***
+***Figure 9: Output for the United States***
 
-Scrape the flag URL from the CIA World Factbook. Append the country name to this URL:
+If a country's team does not have a nickname, show "Not found" for that field.
 
-```
-www.cia.gov/the-world-factbook/countries/
-```
+## Sites to use
+Scraping:
+Nicknames: https://www.topendsports.com/sport/soccer/team-nicknames.htm
+Flags: https://www.cia.gov/the-world-factbook/countries/
+Capital city: "https://restcountries.com/v3.1/name/
 
-Country names should be in lower case; replace any spaces in the name with a "-" character.
+JSON API:
+Flag Emojis: https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/index.json
 
-The other information is obtained from
+## Other notes:
 
-```
-restcountries.com/v3.1
-```
+1. Do not complain or be offended if the name of a country in "countries" is not exactly correct (e.g. "Republic of Robonia" instead of "Robonia", I'm just making that country up). You'll have to adjust between the FIFA official names and the other sites (for example, South Korea).
 
-See the section below about using JSON and setting up the correct Maven dependency. You **must** use the gson library to handle JSON records.
+2. The nickname site seems a little sketchy; I'm not sure those are all correct - *BUT:* if there is no nickname for some team, display "Not found".
 
-Here are the country codes and names:
-```
-ARG,Argentina
-BLZ,Belize
-BOL,Bolivia
-BRA,Brazil
-CAN,Canada
-CHI,Chile
-COL,Colombia
-CRI,Costa Rica
-ECU,Ecuador
-GTM,Guatemala
-GUY,Guyana
-HND,Honduras
-MEX,Mexico
-NIC,Nicaragua
-PAN,Panama
-PAR,Paraguay
-PER,Peru
-SLV,El Salvador
-SUR,Suriname
-URU,Uruguay
-USA,United States
-VEN,Venezuela
-```
+3. The capital city site may have duplicates of country names, because some of its listings are territories of other countries or use the same currency - so be careful while scraping this site. For example, the capital of Ireland is Dublin, not London, as my first attempt claimed.
 
-Some countries may have more than one currency; just take the first one. The country's neighors are listed under "borders" in the JSON record and given as three-letter codes.
+4. You are responsible for correctly handling any outliers on all the sites we're using. For example, "England" is not a country, but show Great Britain's capital. The flag of England should be the United Kingdom's flag, but the emoji should be England's. 
 
-Other requirements:
-6. Be coded primarily in Java and JSP. If you use something else, give a brief but convincing argument why this was **necessary** and not just a convenience (like you copied the code from github, or you got ChatGPT to generate it, are not good reasons). However, see #7 below!
+5. The country flag's size and the emoji flag's size should be approximately as shown.
 
-7. Use one page for input and one for your output - one for the original input and one for the output.
+6. The flag emoji image URL *MUST* be obtained by parsing a ***JSON record*** returned from this site. This API returns an array of JSON records; convert it to an array of Java objects. Create a Java class with the appropriate String keys (see what the API returns to figure this out) as private data, an overloaded constructor, and getters/setters for each of the data fields. Only the "image" field (*not* the emoji field) will be used, but you'll need all the fields to do the conversion. Create a Java array from the JSON records containing *only* the needed countries (there are a lot more than that in the JSON record).
 
-8. Use the Model-View-Contorller (MVC) pattern and good separation of concerns. As part of using MVC, use the following setup to ensure correct grading of your project.
+Only create this array ***once***, not again and again for every new country being searched. Points will be deducted if you do this incorrectly.
 
-9. To enable testing, your servlet must write a small output file containing the following information in JSON format. Name the file "country.json" and store it in the project's home directory. The example shown is after Colombia is searched.
+You ***MUST*** use the gson library for this - see below for details about including it in your project.
 
-```
-{
-"countryName":"Republic of Colombia"
-"neighbors":"[Brazil Ecuador Panama Peru Venezuela]"
-"flag":"<url of Colombia's flag goes here>"
-"currency":"$ Colombian peso"
-}
-```
+(*Note:* we could have scraped the flag emoji URL by treating the returned data as a string, but the point here is to use an API and JSON.)
 
-10. Handle error conditions in a "reasonable" way. Check for non-200 status codes, for example.
+7. When the user presses the "Continue" button, return to the original screen.
 
-11. Be well documented - the code, the usage of the app, and the structure/design of the app, any AI-related things as described above. Refer to the documentation guidelines on Canvas.
+8. You *MUST* use the MVC pattern for Task 2.
 
-Again, you *MUST* use the MVC pattern for Task 3.
-
-## Notes and hints
+## Programming hints
 
 ## Screen Scraping
 Screen scraping is programmatically processing the HTML that typically is displayed by a browser and can be a useful tool when your data source does not have an API that provides structured data. Instead, you can search or parse the HTML to find and extract the data that you need. For more information, see
@@ -257,7 +210,7 @@ Your application should work similarly to InterestingPicture, but instead of sea
 
 - You are allowed to and encouraged to build your solution based on the InterestingPicture code you have been given in class. You MUST refactor it, however, so that it has project, variable, and class names that make sense for your application. For example, <b>you will lose points</b> if your class is still named InterestingPictureServlet.
 
-- You do not need to, but you are welcome to, use jsoup (https://jsoup.org/) which is a Java HTML Parser, to do the scraping.  It is the Java version of Beautiful Soup, which you may have used in Python. The downsides of using jsoup are you will first need to understand the Document Object Model (DOM) and CSS Selectors. These are both useful to know. The upside of using jsoup is that it makes it much easier to find and select content from HTML (i.e. screen scrape). Refer to the JSON Maven notes below; adding jsoup will require a similar process.
+- You do not need to, but you are welcome to, use jsoup (https://jsoup.org/) which is a Java HTML Parser, to do the flag scraping.  It is the Java version of Beautiful Soup, which you may have used in Python. The downsides of using jsoup are you will first need to understand the Document Object Model (DOM) and CSS Selectors. These are both useful to know. The upside of using jsoup is that it makes it much easier to find and select content from HTML (i.e. screen scrape). Refer to the JSON Maven notes below; adding jsoup will require a similar process.
 
 ## HTML
 
@@ -265,13 +218,13 @@ Refer to http://www.w3schools.com for good help on the basic HTML you need for t
 
 ## JSON and gson
 
-JSON records are text records containing tag-value pairs, where the tag is the field name - think of it as a dictionary or map with nesting. It is much shorter than XML. In order to find what you need, use the JSON library GSON. To use GSON, download the gson v.2.11.0 jar file to a place you'll remember. To add it to your project, go to File->Project Structure->Modules, choose the Dependencies tab, click the + icon at the bottom choose Jars or Directories, navigate to where you put the jar file, click that, then Apply and OK. It should show up in your pom.xml file as the last entry in <dependiences> as:
+JSON records are text records containing tag-value pairs, where the tag is the field name - think of it as a dictionary or map with nesting. It is much shorter than XML. In order to find what you need, use the JSON library GSON. To use GSON, download the gson v.2.10.1 jar file to a place you'll remember. To add it to your project, go to File->Project Structure->Modules, choose the Dependencies tab, click the + icon at the bottom choose Jars or Directories, navigate to where you put the jar file, click that, then Apply and OK. It should show up in your pom.xml file as the last entry in <dependiences> as:
 
   ```
   <dependency>
       <groupId>com.google.code.gson</groupId>
       <artifactId>gson</artifactId>
-      <version>2.11.0</version>
+      <version>2.10.1</version>
   </dependency>
   ```
 
@@ -280,6 +233,42 @@ If this does not appear, add the above lines manually to pom.xml.
 Finally, reload the Maven dependencies to have this new dependency take effect - an icon will probably appear in the pom.xml window, but if you don't see it, got to the Project View window, find the pom.xml entry (it should be near the bottom of the tree), right click it, choose Maven -> Reload Project. (FYI, Maven is a build management tool, different from the usual Gradle build; Maven uses the Project Object Model (pom) file to keep track of properties and dependencies.)
 
 Please use gson and not some other JSON library.
+
+Test your gson setup like this:
+```
+import com.google.gson.Gson;
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello world!");
+        Gson gson = new Gson();
+        System.out.println("Gson is available!");
+    }
+}
+```
+You'll need to create a class that corresponds to the JSON data. For example, the class Message below is associated with the Gson object for sending. Receiving JSON data is similar. Note that more complicated (that is, nested) JSON objects require more work.
+
+```
+class Message {
+    String name;
+    int id;
+    public Message(String name, int id) {
+        this.name = name;
+        this.id = id;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Create a message
+        Message msg = new Message("Alice", 30);
+        // Create a Gson object
+        Gson gson = new Gson();
+        // Serialize to JSON
+        String messageToSend = gson.toJson(msg);
+        // Display the JSON string
+        System.out.println(messageToSend);
+```
 
 ## SSLHandshakeException
 Most modern sites require you to make https, not http requests. When you do so from your Java program, you will hit an SSLHandshakeException. We will be covering SSL and related topics in a few weeks. In the meantime, you will have to deal with this exception.
@@ -358,8 +347,7 @@ private void createTrustManager(String certType) throws KeyManagementException, 
 
 ```
 
-## Questions:
-If you have questions, you can post them to the class Piazza and tag them as “Project1”. Track Piazza for additional hints and answers to questions.
+Track Piazza for additional hints and answers to questions.
 
 # Summary & Submission:
 Be sure to review the Rubric linked on the course schedule for the first day. Please remember to document your code! Points will be deducted if you don't have enough.
@@ -374,13 +362,15 @@ Submit ***one*** zip file naned Project1_andrewID.zip, where "andrewID" is repla
 
 
 ### Task 2:
-1. * From the root of your project directory, compress your code and dependencies:
+2. * From the root of your project directory, compress your code and dependencies:
   ```bash
   zip -r ../andrew-id_Project1Task2.zip ./*
   ```
 
 ### Task 3:
-1. * From the root of your project directory, compress your code and dependencies:
+Make sure your project is named Project1Task3, uses the Application Context " Project1Task3-1.0-SNAPSHOT", and uses these configuraations before doGet: "@WebServlet(name = "Project1Task3Servlet", urlPatterns = "/getProject1Task3Servlet")".
+
+* From the root of your project directory, compress your code and dependencies:
   ```bash
   zip -r ../andrew-id_Project1Task3.zip ./*
   ```
