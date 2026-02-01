@@ -153,6 +153,30 @@ Figure 5 is what the web app should look like for mobile if the doctype is set c
 ```
 where option is A, B, C, or D.
 
+## Technical Requirements
+
+### Form Specifications
+- Submit form method: **POST**
+- Submit form action: `/submit`
+- Radio button group name: **`answer`**
+- Radio button values: **`A`**, **`B`**, **`C`**, **`D`**
+
+**Example form structure:**
+```html
+<form method="post" action="submit">
+    <input type="radio" name="answer" value="A" required> A<br>
+    <input type="radio" name="answer" value="B"> B<br>
+    <input type="radio" name="answer" value="C"> C<br>
+    <input type="radio" name="answer" value="D"> D<br>
+    <input type="submit" value="Submit">
+</form>
+```
+
+```java
+@WebServlet(name = "Project1Task2Servlet", urlPatterns = {"/getResults", "/submit"})
+public class Project1Task2Servlet extends HttpServlet { ... }
+```
+
 Produce screen shots of your application:
 - With the answer options on desktop
 - With the getResults on desktop
