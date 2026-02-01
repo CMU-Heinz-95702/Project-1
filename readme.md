@@ -47,6 +47,40 @@ Be sure to provide a simple and user friendly interface.  If you are unfamiliar 
 
 Because Task 1 is fairly simple, you do not have to use MVC for it. Do the simplest thing possible (however, feel free to use MVC if you'd like).
 
+## Technical Requirements
+
+Your implementation must follow these exact specifications:
+
+### HTML Form (index.jsp)
+- Form method: **GET**
+- Form action: `compute-hash-servlet`
+- Text input field name: **`text`**
+- Radio button group name: **`hashFunction`**
+- Radio button values: **`MD5`** and **`SHA-256`** (exact capitalization)
+- MD5 radio button should be checked by default
+
+**Example form structure:**
+```html
+<form method="get" action="compute-hash-servlet">
+    <label for="textInput">Enter text:</label>
+    <input type="text" name="text" id="textInput" required>
+
+</form>
+```
+
+### Servlet (ComputeHashes.java)
+- Must handle **GET** requests
+- Extract parameters using:
+  - `request.getParameter("text")` - the text to hash
+  - `request.getParameter("hashFunction")` - either "MD5" or "SHA-256"
+
+### Output Requirements
+Your servlet response must include ALL of the following:
+1. The **original text** entered by the user
+2. The **name of the hash function** used (MD5 or SHA-256)
+3. The hash value in **hexadecimal** format 
+4. The hash value in **Base64** format 
+
 Be sure to create screen shots of your working application and submit them as described in the Submission section at the end of this document.
 
 # Task 2
