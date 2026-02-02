@@ -233,6 +233,93 @@ Capital city: "https://restcountries.com/v3.1/name/
 JSON API:
 Flag Emojis: https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/index.json
 
+## Technical Requirements
+
+### Application Configuration
+- **Project Name**: Project1Task3
+- **Application Context**: Project1Task3-1.0-SNAPSHOT
+- **Servlet URL Pattern**: `/getProject1Task3Servlet`
+
+### Form Specifications (index.jsp)
+Your welcome page form must use these specifications:
+- Form method: **POST** (or GET - servlet should handle both)
+- Form action: `getProject1Task3Servlet`
+- Dropdown menu name: **`country`**
+- Dropdown values: The 40 country names from the "countries" file
+
+**Example form structure:**
+```html
+<form method="get" action="getProject1Task3Servlet">
+    <label for="countrySelect">Select a country:</label>
+    <select name="country" id="countrySelect" required>
+        <option value="Argentina">Argentina</option>
+        <option value="Brazil">Brazil</option>
+        <option value="Canada">Canada</option>
+        <!-- ... include all 40 countries from the file ... -->
+    </select>
+    <input type="submit" value="Submit">
+</form>
+```
+
+### Servlet Configuration
+```java
+@WebServlet(name = "Project1Task3Servlet", urlPatterns = "/getProject1Task3Servlet")
+public class Project1Task3Servlet extends HttpServlet {
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        String country = request.getParameter("country");
+        
+        // Get data from model
+        // Set attributes
+        // Forward to results.jsp
+    }
+    
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        doGet(request, response); // Handle POST same as GET
+    }
+}
+```
+
+### Results Page Requirements (results.jsp)
+Your output page must display:
+- **Selected country name** (exactly as submitted)
+- **Nickname** (or "Not found" if not available)
+- **Capital** (or "N/A" if not available)
+- **Flag image** from cia.gov
+- **Flag emoji** image from the JSON API
+- **Credits** to all four data sources with their URLs:
+  - www.topendsports.com
+  - www.cia.gov
+  - restcountries.com
+  - cdn.jsdelivr.net
+
+### Continue Button
+Include a way to return to the welcome screen:
+```html
+<form action="index.jsp" method="get">
+    <input type="submit" value="Continue">
+</form>
+```
+
+Or use a simple link:
+```html
+<a href="index.jsp">
+    <button>Continue</button>
+</a>
+```
+
+### Parameter Extraction
+In your servlet, extract the country using:
+```java
+String country = request.getParameter("country");
+```
+
+You MUST use the MVC pattern for Task 3.
+
 ## Other notes:
 
 1. Do not complain or be offended if the name of a country in "countries" is not exactly correct (e.g. "Republic of Robonia" instead of "Robonia", I'm just making that country up). You'll have to adjust between the FIFA official names and the other sites (for example, South Korea).
