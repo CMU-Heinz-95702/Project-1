@@ -47,40 +47,6 @@ Be sure to provide a simple and user friendly interface.  If you are unfamiliar 
 
 Because Task 1 is fairly simple, you do not have to use MVC for it. Do the simplest thing possible (however, feel free to use MVC if you'd like).
 
-## Technical Requirements
-
-Your implementation must follow these exact specifications:
-
-### HTML Form (index.jsp)
-- Form method: **GET**
-- Form action: `compute-hash-servlet`
-- Text input field name: **`text`**
-- Radio button group name: **`hashFunction`**
-- Radio button values: **`MD5`** and **`SHA-256`** (exact capitalization)
-- MD5 radio button should be checked by default
-
-**Example form structure:**
-```html
-<form method="get" action="compute-hash-servlet">
-    <label for="textInput">Enter text:</label>
-    <input type="text" name="text" id="textInput" required>
-
-</form>
-```
-
-### Servlet (ComputeHashes.java)
-- Must handle **GET** requests
-- Extract parameters using:
-  - `request.getParameter("text")` - the text to hash
-  - `request.getParameter("hashFunction")` - either "MD5" or "SHA-256"
-
-### Output Requirements
-Your servlet response must include ALL of the following:
-1. The **original text** entered by the user
-2. The **name of the hash function** used (MD5 or SHA-256)
-3. The hash value in **hexadecimal** format 
-4. The hash value in **Base64** format 
-
 Be sure to create screen shots of your working application and submit them as described in the Submission section at the end of this document.
 
 # Task 2
@@ -153,30 +119,6 @@ Figure 5 is what the web app should look like for mobile if the doctype is set c
 ```
 where option is A, B, C, or D.
 
-## Technical Requirements
-
-### Form Specifications
-- Submit form method: **POST**
-- Submit form action: `/submit`
-- Radio button group name: **`answer`**
-- Radio button values: **`A`**, **`B`**, **`C`**, **`D`**
-
-**Example form structure:**
-```html
-<form method="post" action="submit">
-    <input type="radio" name="answer" value="A" required> A<br>
-    <input type="radio" name="answer" value="B"> B<br>
-    <input type="radio" name="answer" value="C"> C<br>
-    <input type="radio" name="answer" value="D"> D<br>
-    <input type="submit" value="Submit">
-</form>
-```
-
-```java
-@WebServlet(name = "Project1Task2Servlet", urlPatterns = {"/getResults", "/submit"})
-public class Project1Task2Servlet extends HttpServlet { ... }
-```
-
 Produce screen shots of your application:
 - With the answer options on desktop
 - With the getResults on desktop
@@ -232,93 +174,6 @@ Capital city: "https://restcountries.com/v3.1/name/
 
 JSON API:
 Flag Emojis: https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/index.json
-
-## Technical Requirements
-
-### Application Configuration
-- **Project Name**: Project1Task3
-- **Application Context**: Project1Task3-1.0-SNAPSHOT
-- **Servlet URL Pattern**: `/getProject1Task3Servlet`
-
-### Form Specifications (index.jsp)
-Your welcome page form must use these specifications:
-- Form method: **POST** (or GET - servlet should handle both)
-- Form action: `getProject1Task3Servlet`
-- Dropdown menu name: **`country`**
-- Dropdown values: The 40 country names from the "countries" file
-
-**Example form structure:**
-```html
-<form method="get" action="getProject1Task3Servlet">
-    <label for="countrySelect">Select a country:</label>
-    <select name="country" id="countrySelect" required>
-        <option value="Argentina">Argentina</option>
-        <option value="Brazil">Brazil</option>
-        <option value="Canada">Canada</option>
-        <!-- ... include all 40 countries from the file ... -->
-    </select>
-    <input type="submit" value="Submit">
-</form>
-```
-
-### Servlet Configuration
-```java
-@WebServlet(name = "Project1Task3Servlet", urlPatterns = "/getProject1Task3Servlet")
-public class Project1Task3Servlet extends HttpServlet {
-    
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
-            throws ServletException, IOException {
-        String country = request.getParameter("country");
-        
-        // Get data from model
-        // Set attributes
-        // Forward to results.jsp
-    }
-    
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
-            throws ServletException, IOException {
-        doGet(request, response); // Handle POST same as GET
-    }
-}
-```
-
-### Results Page Requirements (results.jsp)
-Your output page must display:
-- **Selected country name** (exactly as submitted)
-- **Nickname** (or "Not found" if not available)
-- **Capital** (or "N/A" if not available)
-- **Flag image** from cia.gov
-- **Flag emoji** image from the JSON API
-- **Credits** to all four data sources with their URLs:
-  - www.topendsports.com
-  - www.cia.gov
-  - restcountries.com
-  - cdn.jsdelivr.net
-
-### Continue Button
-Include a way to return to the welcome screen:
-```html
-<form action="index.jsp" method="get">
-    <input type="submit" value="Continue">
-</form>
-```
-
-Or use a simple link:
-```html
-<a href="index.jsp">
-    <button>Continue</button>
-</a>
-```
-
-### Parameter Extraction
-In your servlet, extract the country using:
-```java
-String country = request.getParameter("country");
-```
-
-You MUST use the MVC pattern for Task 3.
 
 ## Other notes:
 
@@ -519,7 +374,7 @@ Make sure your project is named Project1Task3, uses the Application Context " Pr
   ```bash
   zip -r ../andrew-id_Project1Task3.zip ./*
   ```
-* Your submission must contain **all required source files** , you must ensure that results of the task are well stored in country.json file as autograder checks for this file.
+* Your submission must contain **all required source files** ~~, you must ensure that results of the task are well stored in country.json file as autograder checks for this file~~.
 
 
 ### Code: ###
