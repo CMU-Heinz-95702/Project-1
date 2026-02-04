@@ -18,7 +18,8 @@ And **fifth**, as in all projects this semester, you should reflect on the funct
 
 # Deliverables
 There are two parts to deliver, all zipped into one file for upload, with the name Project1_andrewID.zip, where "andrewID" is replaced with your actual andrew id:
-- one PDF containing relevant screeenshots of all the parts followed by code snippets (which is relative: how much to include is up to you for each part) that produced the result shown in the screenshot. Each section of the PDF must be clearly labeled.
+~~- one PDF containing relevant screeenshots of all the parts followed by code snippets (which is relative: how much to include is up to you for each part) that produced the result shown in the screenshot. Each section of the PDF must be clearly labeled.~~
+
 - your three projects, each zipped, with all of the three tasks zipped together.
 
 See the end for more detail, but read the project task descriptions first so that you know what the details are talking about.
