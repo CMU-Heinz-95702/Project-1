@@ -169,7 +169,17 @@ If a country's team does not have a nickname, show "Not found" for that field.
 ## Sites to use
 Scraping:
 Nicknames: https://www.topendsports.com/sport/soccer/team-nicknames.htm
-Flags: https://www.cia.gov/the-world-factbook/countries/
+
+~~Flags: https://www.cia.gov/the-world-factbook/countries/~~
+
+Flags: https://www.worldometers.info/geography/flags-of-the-world/
+
+but note that the flag images themselves are found with the prefix
+```
+    https://www.worldometers.info/
+```
+with the img tag (a gif file) tacked on the end.
+
 Capital city: "https://restcountries.com/v3.1/name/
 
 JSON API:
