@@ -1,7 +1,7 @@
 # 95-702 Distributed Systems
 # Project 1
 ## Assigned: Monday, August 31
-## Due: Monday, September 14, 2:00 PM
+## Due: Monday, September 21, 2:00 PM
 ## Late by one minute is late!
 
 This project has five objectives:
