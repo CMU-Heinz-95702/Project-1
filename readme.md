@@ -57,8 +57,6 @@ Be sure to provide a simple and user friendly interface.  If you are unfamiliar 
 
 Because Task 1 is fairly simple, you do not have to use MVC for it. Do the simplest thing possible (however, feel free to use MVC if you'd like).
 
-Be sure to create screen shots of your working application and submit them as described in the Submission section at the end of this document.
-
 # Task 2
 # Use the IntelliJ Project Name: Project1Task2
 
